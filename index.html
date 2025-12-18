@@ -1,6 +1,308 @@
-<html>
-<head></head>
-<body></body>
-HALO 
-    NAMA SAYA : ANISA
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toko NNNNNN Sederhana</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        nav a {
+            color: white;
+            margin-left: 20px;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .hero {
+            background: linear-gradient(120deg, #74ebd5, #acb6e5);
+            padding: 60px 40px;
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        .hero h2 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 18px;
+        }
+
+        .container {
+            padding: 40px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-info h3 {
+            margin: 0 0 10px;
+        }
+
+        .price {
+            font-size: 18px;
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        .product-info button {
+            margin-top: 15px;
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background-color: #2c3e50;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .product-info button:hover {
+            background-color: #1a252f;
+        }
+
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>TokoKu</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Produk</a>
+            <a href="#">Tentang</a>
+            <a href="#">Kontak</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>Selamat Datang di TokoKu</h2>
+        <p>Belanja mudah, cepat, dan terpercaya</p>
+    </section>
+
+    <div class="container">
+        <input type="text" id="search" placeholder="Cari produk..." style="width:100%;padding:12px;margin-bottom:30px;border-radius:8px;border:1px solid #ccc;" onkeyup="searchProduct()">
+        <h2>Produk Terbaru</h2>
+        <div class="products" id="product-list">
+
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300x200" alt="Produk 1">
+                <div class="product-info">
+                    <h3>Kaos Polos</h3>
+                    <p class="price">Rp 50.000</p>
+                    <button onclick="addToCart('Kaos Polos', 50000)">Tambah ke Keranjang</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300x200" alt="Produk 2">
+                <div class="product-info">
+                    <h3>Kemeja Casual</h3>
+                    <p class="price">Rp 120.000</p>
+                    <button onclick="addToCart('Kemeja Casual', 120000)">Tambah ke Keranjang</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300x200" alt="Produk 3">
+                <div class="product-info">
+                    <h3>Jaket Hoodie</h3>
+                    <p class="price">Rp 180.000</p>
+                    <button onclick="addToCart('Jaket Hoodie', 180000)">Tambah ke Keranjang</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300x200" alt="Produk 4">
+                <div class="product-info">
+                    <h3>Celana Jeans</h3>
+                    <p class="price">Rp 200.000</p>
+                    <button onclick="addToCart('Celana Jeans', 200000)">Tambah ke Keranjang</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300x200" alt="Produk 5">
+                <div class="product-info">
+                    <h3>Sepatu Sneakers</h3>
+                    <p class="price">Rp 350.000</p>
+                    <button onclick="addToCart('Sepatu Sneakers', 350000)">Tambah ke Keranjang</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300x200" alt="Produk 6">
+                <div class="product-info">
+                    <h3>Topi Baseball</h3>
+                    <p class="price">Rp 75.000</p>
+                    <button onclick="addToCart('Topi Baseball', 75000)">Tambah ke Keranjang</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300x200" alt="Produk 7">
+                <div class="product-info">
+                    <h3>Tas Ransel</h3>
+                    <p class="price">Rp 250.000</p>
+                    <button onclick="addToCart('Tas Ransel', 250000)">Tambah ke Keranjang</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300x200" alt="Produk 8">
+                <div class="product-info">
+                    <h3>Jam Tangan</h3>
+                    <p class="price">Rp 400.000</p>
+                    <button onclick="addToCart('Jam Tangan', 400000)">Tambah ke Keranjang</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300x200" alt="Produk 9">
+                <div class="product-info">
+                    <h3>Sandal Casual</h3>
+                    <p class="price">Rp 90.000</p>
+                    <button onclick="addToCart('Sandal Casual', 90000)">Tambah ke Keranjang</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300x200" alt="Produk 10">
+                <div class="product-info">
+                    <h3>Dompet Kulit</h3>
+                    <p class="price">Rp 150.000</p>
+                    <button onclick="addToCart('Dompet Kulit', 150000)">Tambah ke Keranjang</button>
+                </div>
+            </div>
+
+        </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300x200" alt="Produk 2">
+                <div class="product-info">
+                    <h3>Produk 2</h3>
+                    <p class="price">Rp 75.000</p>
+                    <button onclick="addToCart('Produk 2', 75000)">Tambah ke Keranjang</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300x200" alt="Produk 3">
+                <div class="product-info">
+                    <h3>Produk 3</h3>
+                    <p class="price">Rp 100.000</p>
+                    <button onclick="addToCart('Produk 3', 100000)">Tambah ke Keranjang</button>
+                </div>
+            </div>
+
+        </div>
+
+        <h2 style="margin-top:40px;">Keranjang Belanja</h2>
+        <ul id="cart-items"></ul>
+        <p><strong>Total: </strong>Rp <span id="total">0</span></p>
+    </div>
+
+    <script>
+        let cart = [];
+        let total = 0;
+
+        function addToCart(name, price) {
+            cart.push({ name, price });
+            total += price;
+            updateCart();
+        }
+
+        function updateCart() {
+            const cartItems = document.getElementById('cart-items');
+            const totalElement = document.getElementById('total');
+            cartItems.innerHTML = '';
+
+            cart.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = `${item.name} - Rp ${item.price.toLocaleString('id-ID')}`;
+                cartItems.appendChild(li);
+            });
+
+            totalElement.textContent = total.toLocaleString('id-ID');
+        }
+
+        function searchProduct() {
+            const input = document.getElementById('search').value.toLowerCase();
+            const products = document.querySelectorAll('.product-card');
+
+            products.forEach(product => {
+                const name = product.querySelector('h3').innerText.toLowerCase();
+                if (name.includes(input)) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        }
+    </script>
+
+    <footer>
+        <p>© 2025 TokoKu | Website Penjualan Online</p>
+    </footer>
+
+</body>
 </html>
