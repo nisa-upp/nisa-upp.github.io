@@ -83,30 +83,74 @@ button {
 // ===== DATA PRODUK =====
 const products = [
   {name:"Lipstik Matte", old:50000, price:25000, badge:"Promo", cat:"makeup", img:"https://images.unsplash.com/photo-1585238342028-4bbc9f1c47e4"},
-  {name:"Foundation Natural", old:70000, price:45000, badge:"Best Seller", cat:"makeup", img:"https://images.unsplash.com/photo-1620916566398-39f1143ab7be"},
-  {name:"Bedak Compact", old:45000, price:30000, badge:"", cat:"makeup", img:"https://images.unsplash.com/photo-1596461404969-9ae70f2830c1"},
-  {name:"Maskara Waterproof", old:40000, price:28000, badge:"Promo", cat:"makeup", img:"https://images.unsplash.com/photo-1590156576816-97b3c25b06d0"},
+  {name:"Foundation", old:70000, price:45000, badge:"Best Seller", cat:"makeup", img:"https://images.unsplash.com/photo-1620916566398-39f1143ab7be"},
+  {name:"Bedak ", old:45000, price:30000, badge:"", cat:"makeup", img:"https://images.unsplash.com/photo-1596461404969-9ae70f2830c1"},
+  {name:"Maskara wajah", old:40000, price:28000, badge:"Promo", cat:"makeup", img:"https://images.unsplash.com/photo-1590156576816-97b3c25b06d0"},
   {name:"Skincare Glow", old:60000, price:35000, badge:"Promo", cat:"skincare", img:"https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd"},
   {name:"Serum Wajah", old:65000, price:40000, badge:"", cat:"skincare", img:"https://images.unsplash.com/photo-1580870069867-74c57ee1bb07"},
   {name:"Facial Wash", old:30000, price:20000, badge:"", cat:"skincare", img:"https://images.unsplash.com/photo-1615485737651-6f07c0f1e58a"}
 ];
 
 // ===== RENDER PRODUK =====
-const productList = document.getElementById("productList");
-function renderProducts(list){
-  productList.innerHTML = "";
-  list.forEach(p=>{
-    productList.innerHTML += `
-      <div class="product" data-cat="${p.cat}">
-        ${p.badge ? `<span class="badge">${p.badge}</span>` : ""}
-        <img src="${p.img}">
-        <h3>${p.name}</h3>
-        <p class="old-price">Rp ${p.old}</p>
-        <p class="price">Rp ${p.price}</p>
-        <button onclick="addToCart('${p.name}', ${p.price})">Tambah ke Keranjang</button>
-      </div>`;
-  });
-}
+const products = [
+  {
+    name: "Lipstik Matte",
+    old: 50000,
+    price: 25000,
+    badge: "Promo",
+    cat: "makeup",
+    img: "https://images.unsplash.com/photo-1585238342028-4bbc9f1c47e4"
+  },
+  {
+    name: "Foundation Natural",
+    old: 70000,
+    price: 45000,
+    badge: "Best Seller",
+    cat: "makeup",
+    img: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be"
+  },
+  {
+    name: "Bedak Compact",
+    old: 45000,
+    price: 30000,
+    badge: "",
+    cat: "makeup",
+    img: "https://images.unsplash.com/photo-1596461404969-9ae70f2830c1"
+  },
+  {
+    name: "Maskara Waterproof",
+    old: 40000,
+    price: 28000,
+    badge: "Promo",
+    cat: "makeup",
+    img: "https://images.unsplash.com/photo-1590156576816-97b3c25b06d0"
+  },
+  {
+    name: "Skincare Glow",
+    old: 60000,
+    price: 35000,
+    badge: "Promo",
+    cat: "skincare",
+    img: "https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd"
+  },
+  {
+    name: "Serum Wajah",
+    old: 65000,
+    price: 40000,
+    badge: "",
+    cat: "skincare",
+    img: "https://images.unsplash.com/photo-1580870069867-74c57ee1bb07"
+  },
+  {
+    name: "Facial Wash",
+    old: 30000,
+    price: 20000,
+    badge: "",
+    cat: "skincare",
+    img: "https://images.unsplash.com/photo-1615485737651-6f07c0f1e58a"
+  }
+];
+
 renderProducts(products);
 
 // ===== SEARCH & FILTER =====
