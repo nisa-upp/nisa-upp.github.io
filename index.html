@@ -202,24 +202,6 @@ const productList = document.getElementById("productList");
 ];
 
 
-function renderProducts(list) {
-  productList.innerHTML = "";
-  list.forEach(p => {
-    productList.innerHTML += `
-    <div class="product">
-      ${p.badge ? `<span class="badge">${p.badge}</span>` : ""}
-      <img src="${p.img}">
-      <h3>${p.name}</h3>
-      <p class="old-price">Rp ${p.old}</p>
-      <p class="price">Rp ${p.price}</p>
-      <button onclick="addToCart('${p.name}', ${p.price})">
-        Tambah ke Keranjang
-      </button>
-    </div>`;
-  });
-}
-renderProducts(products);
-
 // ===== SEARCH & FILTER =====
 function searchProduct(keyword) {
   document.querySelectorAll(".product").forEach(p => {
