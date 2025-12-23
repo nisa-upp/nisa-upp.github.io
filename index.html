@@ -1,252 +1,184 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Toko Kosmetik Cantik</title>
+    <meta charset="UTF-8">
+    <title>Toko Kosmetik </title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #fff0f5;
+            margin: 0;
+            padding: 0;
+        }
 
-<style>
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  background: #f6f6f6;
-}
-header {
-  background: #e91e63;
-  color: white;
-  padding: 15px;
-  text-align: center;
-}
-.container {
-  width: 90%;
-  margin: auto;
-}
-.controls {
-  display: flex;
-  gap: 10px;
-  margin: 20px 0;
-  flex-wrap: wrap;
-}
-.controls input, .controls select {
-  padding: 10px;
-  width: 100%;
-}
-.products {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
-  gap: 20px;
-}
-.product {
-  background: white;
-  padding: 15px;
-  border-radius: 8px;
-  text-align: center;
-  position: relative;
-}
-.badge {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  background: #ff5722;
-  color: white;
-  padding: 4px 8px;
-  font-size: 12px;
-  border-radius: 5px;
-}
-.product img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 8px;
-}
-.old-price {
-  text-decoration: line-through;
-  color: gray;
-}
-.price {
-  color: #e91e63;
-  font-weight: bold;
-  font-size: 18px;
-}
-button {
-  background: #e91e63;
-  color: white;
-  border: none;
-  padding: 10px;
-  width: 100%;
-  border-radius: 5px;
-  cursor: pointer;
-}
-.cart {
-  background: white;
-  padding: 15px;
-  margin: 30px 0;
-  border-radius: 8px;
-}
-.cart button {
-  background: #25D366;
-  margin-top: 10px;
-}
-footer {
-  background: #ddd;
-  padding: 15px;
-  text-align: center;
-}
-</style>
+        header {
+            background: #ff69b4;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .product {
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+
+        .product img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .product h3 {
+            margin: 10px 0 5px;
+        }
+
+        .product p {
+            color: #ff1493;
+            font-weight: bold;
+        }
+
+        button {
+            background: #ff69b4;
+            border: none;
+            padding: 10px;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+
+        button:hover {
+            background: #ff1493;
+        }
+
+        .cart {
+            margin-top: 30px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        footer {
+            background: #ff69b4;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 30px;
+        }
+    </style>
 </head>
-
 <body>
 
 <header>
-  <h1>Toko Kosmetik Cantik</h1>
-  <p>Murah • Lengkap • Terpercaya</p>
+    <h1>Glow Beauty Store 💄</h1>
+    <p>Kosmetik Aman & Favorit </p>
 </header>
 
 <div class="container">
+    <h2>🛍️ Produk Best Seller</h2>
 
-<div class="controls">
-  <input type="text" placeholder="Cari produk..." onkeyup="searchProduct(this.value)">
-  <select onchange="filterCategory(this.value)">
-    <option value="all">Semua Kategori</option>
-    <option value="makeup">Makeup</option>
-    <option value="skincare">Skincare</option>
-  </select>
-</div>
+    <div class="products">
+        <div class="product">
+            <img src="images/lip-tint.jpg" alt="Lip Tint">
+            <h3>Lip Tint Natural</h3>
+            <p>Rp 25.000</p>
+            <button onclick="addToCart('Lip Tint Natural')">Tambah ke Keranjang</button>
+        </div>
 
-<div class="products" id="productList"></div>
+        <div class="product">
+            <img src="images/lip-cream.jpg" alt="Lip Cream">
+            <h3>Lip Cream Remaja</h3>
+            <p>Rp 30.000</p>
+            <button onclick="addToCart('Lip Cream Remaja')">Tambah ke Keranjang</button>
+        </div>
 
-<div class="cart">
-  <h2>Keranjang Belanja</h2>
-  <ul id="cartItems"></ul>
-  <h3>Total: Rp <span id="total">0</span></h3>
-  <button onclick="checkout()">Pesan via WhatsApp</button>
-</div>
+        <div class="product">
+            <img src="images/bedak.jpg" alt="Bedak">
+            <h3>Bedak Tabur</h3>
+            <p>Rp 28.000</p>
+            <button onclick="addToCart('Bedak Tabur')">Tambah ke Keranjang</button>
+        </div>
 
+        <div class="product">
+            <img src="images/sunscreen.jpg" alt="Sunscreen">
+            <h3>Sunscreen SPF 30</h3>
+            <p>Rp 35.000</p>
+            <button onclick="addToCart('Sunscreen SPF 30')">Tambah ke Keranjang</button>
+        </div>
+
+        <div class="product">
+            <img src="images/mascara.jpg" alt="Mascara">
+            <h3>Mascara Natural</h3>
+            <p>Rp 32.000</p>
+            <button onclick="addToCart('Mascara Natural')">Tambah ke Keranjang</button>
+        </div>
+
+        <div class="product">
+            <img src="images/blush.jpg" alt="Blush On">
+            <h3>Blush On Pink</h3>
+            <p>Rp 27.000</p>
+            <button onclick="addToCart('Blush On Pink')">Tambah ke Keranjang</button>
+        </div>
+    </div>
+
+    <div class="cart">
+        <h2>🛒 Keranjang Belanja</h2>
+        <ul id="cartList"></ul>
+        <button onclick="orderWhatsApp()">Pesan via WhatsApp</button>
+    </div>
 </div>
 
 <footer>
-  <p>Hubungi Penjual: WhatsApp 08xxxxxxxxxx</p>
-  <p>&copy; 2025 Toko Kosmetik Cantik</p>
+    <p>📞 Hubungi Penjual: 08xxxxxxxxxx</p>
+    <p>© 2025 Glow Beauty Store</p>
 </footer>
 
 <script>
-// ===== DATA PRODUK =====
-const products = [
-  {name:"Lipstik Matte", old:50000, price:25000, cat:"makeup", badge:"Promo",
-   img:"https://images.unsplash.com/photo-1585238342028-4bbc9f1c47e4"},
-  {name:"Foundation Natural", old:70000, price:45000, cat:"makeup", badge:"Best Seller",
-   img:"https://images.unsplash.com/photo-1620916566398-39f1143ab7be"},
-  {name:"Bedak Compact", old:45000, price:30000, cat:"makeup", badge:"",
-   img:"https://images.unsplash.com/photo-1596461404969-9ae70f2830c1"},
-  {name:"Maskara Waterproof", old:40000, price:28000, cat:"makeup", badge:"Promo",
-   img:"https://images.unsplash.com/photo-1590156576816-97b3c25b06d0"},
-  {name:"Skincare Glow", old:60000, price:35000, cat:"skincare", badge:"Promo",
-   img:"https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd"},
-  {name:"Serum Wajah", old:65000, price:40000, cat:"skincare", badge:"",
-   img:"https://images.unsplash.com/photo-1580870069867-74c57ee1bb07"},
-  {name:"Facial Wash", old:30000, price:20000, cat:"skincare", badge:"",
-   img:"https://images.unsplash.com/photo-1615485737651-6f07c0f1e58a"}
-];
+    let cart = [];
 
-// ===== TAMPILKAN PRODUK =====
-const productList = document.getElementById("productList");
-  const products = [
-  {
-    name: "Lipstik Matte",
-    old: 50000,
-    price: 25000,
-    cat: "makeup",
-    badge: "Promo",
-    img: "https://images.unsplash.com/photo-1585238342028-4bbc9f1c47e4?auto=format&fit=crop&w=500&q=80"
-  },
-  {
-    name: "Foundation Natural",
-    old: 70000,
-    price: 45000,
-    cat: "makeup",
-    badge: "Best Seller",
-    img: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=500&q=80"
-  },
-  {
-    name: "Bedak Compact",
-    old: 45000,
-    price: 30000,
-    cat: "makeup",
-    badge: "",
-    img: "https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?auto=format&fit=crop&w=500&q=80"
-  },
-  {
-    name: "Maskara Waterproof",
-    old: 40000,
-    price: 28000,
-    cat: "makeup",
-    badge: "Promo",
-    img: "https://images.unsplash.com/photo-1590156576816-97b3c25b06d0?auto=format&fit=crop&w=500&q=80"
-  },
-  {
-    name: "Serum Wajah",
-    old: 65000,
-    price: 40000,
-    cat: "skincare",
-    badge: "Promo",
-    img: "https://images.unsplash.com/photo-1580870069867-74c57ee1bb07?auto=format&fit=crop&w=500&q=80"
-  },
-  {
-    name: "Skincare Glow",
-    old: 60000,
-    price: 35000,
-    cat: "skincare",
-    badge: "",
-    img: "https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?auto=format&fit=crop&w=500&q=80"
-  }
-];
+    function addToCart(product) {
+        cart.push(product);
+        updateCart();
+    }
 
+    function updateCart() {
+        let list = document.getElementById("cartList");
+        list.innerHTML = "";
+        cart.forEach(item => {
+            let li = document.createElement("li");
+            li.textContent = item;
+            list.appendChild(li);
+        });
+    }
 
-// ===== SEARCH & FILTER =====
-function searchProduct(keyword) {
-  document.querySelectorAll(".product").forEach(p => {
-    const name = p.querySelector("h3").innerText.toLowerCase();
-    p.style.display = name.includes(keyword.toLowerCase()) ? "" : "none";
-  });
-}
-
-function filterCategory(cat) {
-  if (cat === "all") {
-    renderProducts(products);
-  } else {
-    renderProducts(products.filter(p => p.cat === cat));
-  }
-}
-
-// ===== KERANJANG =====
-let cart = [];
-let total = 0;
-
-function addToCart(name, price) {
-  cart.push({name, price});
-  total += price;
-  renderCart();
-}
-
-function renderCart() {
-  const list = document.getElementById("cartItems");
-  list.innerHTML = "";
-  cart.forEach(item => {
-    list.innerHTML += `<li>${item.name} - Rp ${item.price}</li>`;
-  });
-  document.getElementById("total").innerText = total;
-}
-
-// ===== PEMESANAN WA =====
-function checkout() {
-  let pesan = "Halo, saya mau pesan:%0A";
-  cart.forEach(i => pesan += `- ${i.name} (Rp ${i.price})%0A`);
-  pesan += `%0ATotal: Rp ${total}`;
-  window.open("https://wa.me/628XXXXXXXXXX?text=" + pesan);
-}
+    function orderWhatsApp() {
+        if (cart.length === 0) {
+            alert("Keranjang masih kosong!");
+            return;
+        }
+        let message = "Halo, saya mau pesan:%0A" + cart.join("%0A");
+        window.open("https://wa.me/628xxxxxxxxxx?text=" + message, "_blank");
+    }
 </script>
 
 </body>
 </html>
+   
+
 
  
